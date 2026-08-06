@@ -58,6 +58,14 @@
             "content": "<p>We understand that luxury chess boards and delicate hand-carved pieces require extra care in transit. Every CastleyCrown set is double-boxed and nestled within custom-molded high-density foam cells. If any item arrives damaged or chipped, we send a replacement free of charge immediately.</p>"
           }
         },
+        "collapsible_tab_faq": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Frequently Asked Questions",
+            "icon": "question_mark",
+            "content": "<p>**Q: Are these chess sets FIDE tournament legal?**<br>A: Yes, our sets with 3.75\" King height and 2.25\" square boards meet the official tournament size regulations set by the World Chess Federation (FIDE).<br><br>**Q: Do these sets include extra Queens?**<br>A: Yes, all complete sets include two extra Queens (one for each side) to accommodate pawn promotion.<br><br>**Q: How should I clean the wood board?**<br>A: Wipe gently with a dry microfiber cloth. Avoid water, harsh polishes, or direct sunlight to preserve the natural grain lacquer finish.</p>"
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -76,6 +84,7 @@
         "description",
         "collapsible_tab_specs",
         "collapsible_tab_shipping",
+        "collapsible_tab_faq",
         "share"
       ],
       "settings": {
