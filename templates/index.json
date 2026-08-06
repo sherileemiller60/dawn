@@ -6,18 +6,18 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
+            "heading": "Claim the Board in CastleyCrown Style",
             "heading_size": "h0"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "Shop the kingdom",
             "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
+            "button_label_2": "View new arrivals",
+            "button_link_2": "shopify://collections/all",
             "button_style_secondary_2": false
           }
         }
@@ -29,7 +29,7 @@
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-center",
         "show_text_box": false,
         "image_behavior": "none",
         "desktop_content_alignment": "center",
@@ -42,10 +42,10 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "Opening moves: featured picks",
         "heading_size": "h2",
-        "description": "",
-        "show_description": false,
+        "description": "Boards, pieces, apparel, and study-night accessories curated for every rank.",
+        "show_description": true,
         "description_style": "body",
         "collection": "all",
         "products_to_show": 8,
@@ -53,7 +53,7 @@
         "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "outline",
         "enable_desktop_slider": false,
         "swipe_on_mobile": false,
         "image_ratio": "adapt",
@@ -66,10 +66,104 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "rich_text_strategy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "From casual games to tournament nights",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>CastleyCrown brings a royal chess-shop mood to every product page with deep boardroom tones, polished gold accents, and copy made for players, collectors, and gift-givers.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Find your next move",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "multicolumn_why": {
+      "type": "multicolumn",
+      "blocks": {
+        "one": {
+          "type": "column",
+          "settings": {
+            "title": "\u2654 Royal materials",
+            "text": "<p>Premium boards, statement pieces, and accessories selected for display-worthy play.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "two": {
+          "type": "column",
+          "settings": {
+            "title": "\u265e Tactical gifts",
+            "text": "<p>Smart finds for beginners, club regulars, coaches, and chess-obsessed friends.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "three": {
+          "type": "column",
+          "settings": {
+            "title": "\u265c Built for the endgame",
+            "text": "<p>Durable staples and timeless designs that stay sharp match after match.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "one",
+        "two",
+        "three"
+      ],
+      "settings": {
+        "title": "Why shop CastleyCrown",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "rich_text_strategy",
+    "featured_collection",
+    "multicolumn_why"
   ]
 }
