@@ -3611,24 +3611,14 @@ details-disclosure > details {
   }
 }
 
-/* Custom Chess Board Faint Checkered Pattern Overlay */
-body {
-  position: relative;
-}
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* Custom Chess Board Checkered Pattern on Section Backgrounds */
+.gradient {
   background-image: 
-    linear-gradient(45deg, rgba(212, 175, 55, 0.5) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(212, 175, 55, 0.5) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, rgba(212, 175, 55, 0.5) 75%),
-    linear-gradient(-45deg, transparent 75%, rgba(212, 175, 55, 0.5) 75%);
-  background-size: 160px 160px;
-  background-position: 0 0, 0 80px, 80px -80px, -80px 0px;
-  pointer-events: none;
-  z-index: -1;
+    linear-gradient(45deg, rgba(212, 175, 55, 0.035) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(212, 175, 55, 0.035) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(212, 175, 55, 0.035) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(212, 175, 55, 0.035) 75%),
+    var(--gradient-background) !important;
+  background-size: 160px 160px, 160px 160px, 160px 160px, 160px 160px, auto;
+  background-position: 0 0, 0 80px, 80px -80px, -80px 0px, 0 0;
 }
