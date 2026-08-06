@@ -7,7 +7,7 @@ CastleyCrown is a chess-themed Shopify storefront based on Dawn. It pairs royal 
 - **Store name:** CastleyCrown
 - **Theme:** Chess, strategy, royal craftsmanship, tournament-night polish
 - **Palette:** Ivory squares, midnight board tones, burgundy accents, and crown-gold calls to action
-- **Homepage experience:** Hero messaging, chessboard brand panel, collection pathways, featured chess picks, strategy-focused story modules, FAQ content, newsletter signup, and trust/value columns
+- **Homepage experience:** Hero messaging, featured chess picks, strategy-focused brand story, and trust/value columns
 
 ## Development
 
