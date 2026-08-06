@@ -1,0 +1,397 @@
+{%- style -%}
+  .section-favorites-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .favorites__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .favorites__badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid #D4AF37;
+    color: #D4AF37;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .favorites__title {
+    margin: 0 0 1rem 0;
+  }
+
+  .favorites__description {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    opacity: 0.85;
+  }
+
+  .favorites__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
+    gap: 2rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .favorites__grid {
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    }
+  }
+
+  .favorites-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .favorites-card:hover {
+    transform: translateY(-5px);
+    border-color: #D4AF37;
+    box-shadow: 0 12px 30px -10px rgba(212, 175, 55, 0.3);
+  }
+
+  .favorites-card__badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    background: #7A1F1F;
+    color: #FFF8E7;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .favorites-card__image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .favorites-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .favorites-card:hover .favorites-card__image {
+    transform: scale(1.06);
+  }
+
+  .favorites-card__content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .favorites-card__rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #D4AF37;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .favorites-card__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .favorites-card__title:hover {
+    color: #D4AF37;
+  }
+
+  .favorites-card__price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #D4AF37;
+    margin-bottom: 1.2rem;
+  }
+
+  .favorites-card__button {
+    margin-top: auto;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    background: #7A1F1F;
+    color: #FFF8E7;
+    border: 1px solid #D4AF37;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .favorites-card__button:hover {
+    background: #D4AF37;
+    color: #1B1720;
+  }
+
+  .favorites__footer-action {
+    margin-top: 3.5rem;
+    text-align: center;
+  }
+{%- endstyle -%}
+
+<div class="section-favorites-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="favorites__header">
+      {%- if section.settings.pill_text != blank -%}
+        <div class="favorites__badge-pill">
+          <span>👑</span>
+          <span>{{ section.settings.pill_text | escape }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.title != blank -%}
+        <h2 class="favorites__title {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <p class="favorites__description">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="favorites__grid">
+      {%- assign collection = section.settings.collection -%}
+      {%- if collection != blank and collection.products_count > 0 -%}
+        {%- for product in collection.products limit: section.settings.products_to_show -%}
+          <div class="favorites-card">
+            {%- if forloop.index == 1 -%}
+              <span class="favorites-card__badge">#1 Best Seller</span>
+            {%- elsif forloop.index == 2 -%}
+              <span class="favorites-card__badge">Grandmaster Choice</span>
+            {%- elsif forloop.index == 3 -%}
+              <span class="favorites-card__badge">Top Gift Pick</span>
+            {%- endif -%}
+
+            <a href="{{ product.url }}" class="favorites-card__image-wrapper" aria-label="{{ product.title | escape }}">
+              {%- if product.featured_media != blank -%}
+                <img
+                  src="{{ product.featured_media | image_url: width: 600 }}"
+                  alt="{{ product.featured_media.alt | escape }}"
+                  class="favorites-card__image"
+                  loading="lazy"
+                  width="600"
+                  height="600"
+                >
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'favorites-card__image' }}
+              {%- endif -%}
+            </a>
+
+            <div class="favorites-card__content">
+              <div class="favorites-card__rating">
+                <span>★★★★★</span>
+                <span>(4.9)</span>
+              </div>
+
+              <a href="{{ product.url }}" class="favorites-card__title">
+                {{ product.title | escape }}
+              </a>
+
+              <div class="favorites-card__price">
+                {{ product.price | money }}
+                {%- if product.compare_at_price > product.price -%}
+                  <s style="opacity: 0.6; margin-left: 6px; font-size: 0.9em; color: inherit;">{{ product.compare_at_price | money }}</s>
+                {%- endif -%}
+              </div>
+
+              <a href="{{ product.url }}" class="favorites-card__button">
+                Claim Set
+              </a>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <div class="favorites-card">
+            {%- if i == 1 -%}
+              <span class="favorites-card__badge">#1 Best Seller</span>
+            {%- elsif i == 2 -%}
+              <span class="favorites-card__badge">Grandmaster Choice</span>
+            {%- else -%}
+              <span class="favorites-card__badge">Top Gift Pick</span>
+            {%- endif -%}
+
+            <div class="favorites-card__image-wrapper">
+              {{ 'product-' | append: i | placeholder_svg_tag: 'favorites-card__image' }}
+            </div>
+
+            <div class="favorites-card__content">
+              <div class="favorites-card__rating">
+                <span>★★★★★</span>
+                <span>(4.9)</span>
+              </div>
+
+              <div class="favorites-card__title">
+                Royal Walnut & Ebonized Boxwood Set {{ i }}
+              </div>
+
+              <div class="favorites-card__price">
+                $189.00 USD
+              </div>
+
+              <div class="favorites-card__button">
+                View Set Details
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_view_all and collection != blank -%}
+      <div class="favorites__footer-action">
+        <a href="{{ collection.url }}" class="button button--primary" style="background: #D4AF37; color: #1B1720; border-color: #D4AF37; font-weight: 700; padding: 14px 32px; border-radius: 8px;">
+          View Full Kingdom Collection
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Grandmaster Favorites",
+  "class": "section-featured-favorites",
+  "settings": [
+    {
+      "type": "text",
+      "id": "pill_text",
+      "label": "Top Badge Pill",
+      "default": "Player Favorites"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Grandmaster's Featured Selection"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Our most acclaimed luxury sets, weighted pieces, and handcrafted board combinations."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "label": "Products to show"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4,
+      "label": "Columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        { "value": "1", "label": "1 Column" },
+        { "value": "2", "label": "2 Columns" }
+      ],
+      "default": "2",
+      "label": "Columns on mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "Enable 'View all' button"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-3"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grandmaster Favorites"
+    }
+  ]
+}
+{% endschema %}

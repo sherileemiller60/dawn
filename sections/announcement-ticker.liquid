@@ -1,0 +1,224 @@
+{%- style -%}
+  .announcement-ticker-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  }
+
+  .announcement-ticker__track-{{ section.id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 2.5rem;
+    animation: announcement-ticker-scroll-{{ section.id }} {{ section.settings.scroll_speed }}s linear infinite;
+    will-change: transform;
+  }
+
+  {%- if section.settings.pause_on_hover -%}
+  .announcement-ticker-{{ section.id }}:hover .announcement-ticker__track-{{ section.id }} {
+    animation-play-state: paused;
+  }
+  {%- endif -%}
+
+  .announcement-ticker__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: {{ section.settings.text_size }}px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: inherit;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .announcement-ticker__icon {
+    font-size: 1.2em;
+    display: inline-block;
+    color: #D4AF37;
+  }
+
+  .announcement-ticker__badge {
+    background: rgba(212, 175, 55, 0.2);
+    border: 1px solid #D4AF37;
+    color: inherit;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .announcement-ticker__separator {
+    color: #D4AF37;
+    opacity: 0.6;
+    font-weight: bold;
+  }
+
+  @keyframes announcement-ticker-scroll-{{ section.id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+{%- endstyle -%}
+
+<div class="announcement-ticker-{{ section.id }} color-{{ section.settings.color_scheme }} gradient" role="region" aria-label="Announcements">
+  <div class="announcement-ticker__track-{{ section.id }}">
+    {%- for i in (1..4) -%}
+      {%- for block in section.blocks -%}
+        {%- if block.settings.link != blank -%}
+          <a href="{{ block.settings.link }}" class="announcement-ticker__item" {{ block.shopify_attributes }}>
+        {%- else -%}
+          <div class="announcement-ticker__item" {{ block.shopify_attributes }}>
+        {%- endif -%}
+
+          {%- if block.settings.icon != blank -%}
+            <span class="announcement-ticker__icon">{{ block.settings.icon }}</span>
+          {%- endif -%}
+
+          {%- if block.settings.badge != blank -%}
+            <span class="announcement-ticker__badge">{{ block.settings.badge }}</span>
+          {%- endif -%}
+
+          <span>{{ block.settings.text | escape }}</span>
+
+          <span class="announcement-ticker__separator">♟</span>
+
+        {%- if block.settings.link != blank -%}
+          </a>
+        {%- else -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Royal Ticker Bar",
+  "class": "section-announcement-ticker",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-3"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "label": "Scroll speed (seconds)",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Text size",
+      "default": 14
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon or Emoji",
+          "default": "👑"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Highlight Badge (optional)",
+          "default": "CODE: CHECKMATE"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Announcement text",
+          "default": "Complimentary Royal Gift Box on Orders Over $150"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Royal Ticker Bar",
+      "blocks": [
+        {
+          "type": "announcement",
+          "settings": {
+            "icon": "♟️",
+            "badge": "FREE SHIPPING",
+            "text": "Express Insured Delivery Worldwide on All Premium Sets"
+          }
+        },
+        {
+          "type": "announcement",
+          "settings": {
+            "icon": "👑",
+            "badge": "CODE: CHECKMATE",
+            "text": "10% Off Your First Royal Chess Set"
+          }
+        },
+        {
+          "type": "announcement",
+          "settings": {
+            "icon": "🏆",
+            "badge": "FIDE STANDARD",
+            "text": "Official Tournament Weighted Boards & Pieces"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

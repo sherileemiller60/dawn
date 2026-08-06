@@ -1,0 +1,305 @@
+{%- style -%}
+  .section-trust-badges-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .trust-badges__header {
+    text-align: {{ section.settings.heading_alignment }};
+    margin-bottom: 3.5rem;
+  }
+
+  .trust-badges__title {
+    margin: 0 0 1rem;
+    font-weight: 700;
+  }
+
+  .trust-badges__subtitle {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .trust-badges__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
+    gap: 2rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .trust-badges__grid {
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    }
+  }
+
+  .trust-badge-card {
+    position: relative;
+    padding: 2.2rem 1.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: {{ section.settings.card_alignment }};
+    text-align: {{ section.settings.card_alignment }};
+  }
+
+  .trust-badge-card:hover {
+    transform: translateY(-4px);
+    border-color: #D4AF37;
+    box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.2);
+  }
+
+  .trust-badge-card__icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(122, 31, 31, 0.2) 100%);
+    border: 1px solid #D4AF37;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #D4AF37;
+    flex-shrink: 0;
+  }
+
+  .trust-badge-card__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 0.6rem 0;
+    letter-spacing: 0.02em;
+  }
+
+  .trust-badge-card__text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.85;
+    margin: 0;
+  }
+
+  .trust-badge-card__tag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: #D4AF37;
+    color: #1B1720;
+  }
+{%- endstyle -%}
+
+<div class="section-trust-badges-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
+      <div class="trust-badges__header">
+        {%- if section.settings.title != blank -%}
+          <h2 class="trust-badges__title {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="trust-badges__subtitle">{{ section.settings.subtitle | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="trust-badges__grid">
+      {%- for block in section.blocks -%}
+        <div class="trust-badge-card" {{ block.shopify_attributes }}>
+          <div class="trust-badge-card__icon-wrapper">
+            <span>{{ block.settings.icon }}</span>
+          </div>
+
+          <h3 class="trust-badge-card__title">{{ block.settings.title | escape }}</h3>
+
+          {%- if block.settings.text != blank -%}
+            <p class="trust-badge-card__text">{{ block.settings.text }}</p>
+          {%- endif -%}
+
+          {%- if block.settings.tag != blank -%}
+            <span class="trust-badge-card__tag">{{ block.settings.tag | escape }}</span>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Royal Craft Badges",
+  "class": "section-chess-trust-badges",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Royal Craftsmanship & Guarantees"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Every board, piece, and accessory is crafted for tournament precision and lasting beauty."
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center",
+      "label": "Heading alignment"
+    },
+    {
+      "type": "select",
+      "id": "card_alignment",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "center",
+      "label": "Card alignment"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        { "value": "1", "label": "1 column" },
+        { "value": "2", "label": "2 columns" }
+      ],
+      "default": "1",
+      "label": "Number of columns on mobile"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Emoji or Icon",
+          "default": "♟️"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Badge title",
+          "default": "Triple-Weighted Precision"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Balanced piece weighting engineered for satisfying tactile moves and stability."
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag label (optional)",
+          "default": "FIDE Compliant"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Royal Craft Badges",
+      "blocks": [
+        {
+          "type": "badge",
+          "settings": {
+            "icon": "♟️",
+            "title": "Triple-Weighted Pieces",
+            "text": "Weighted brass and lead cores give every move a firm, authoritative click.",
+            "tag": "Tournament Ready"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon": "🪵",
+            "title": "Sustainable Hardwood",
+            "text": "Selected grain Sheesham, Walnut, Ebonized Boxwood, and Italian Marble finishes.",
+            "tag": "Hand Carved"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon": "🛡️",
+            "title": "Felt Scratch Protection",
+            "text": "Heavy green & gold velvet felt pads on every piece base to guard heirloom boards.",
+            "tag": "Board Guard"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon": "✈️",
+            "title": "Insured Global Shipping",
+            "text": "Custom fitted foam velvet cases ensure flawless arrival anywhere in the world.",
+            "tag": "100% Guaranteed"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -39,32 +39,59 @@
         "show_text_below": false
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "announcement_ticker": {
+      "type": "announcement-ticker",
       "settings": {
-        "title": "Opening moves: featured picks",
-        "heading_size": "h2",
-        "description": "Boards, pieces, apparel, and study-night accessories curated for every rank.",
-        "show_description": true,
-        "description_style": "body",
+        "color_scheme": "scheme-3",
+        "scroll_speed": 25,
+        "text_size": 14,
+        "pause_on_hover": true,
+        "padding_top": 12,
+        "padding_bottom": 12
+      },
+      "blocks": {
+        "b1": {
+          "type": "announcement",
+          "settings": {
+            "icon": "♟️",
+            "badge": "FREE SHIPPING",
+            "text": "Express Insured Delivery Worldwide on All Premium Sets"
+          }
+        },
+        "b2": {
+          "type": "announcement",
+          "settings": {
+            "icon": "👑",
+            "badge": "CODE: CHECKMATE",
+            "text": "10% Off Your First Royal Chess Set"
+          }
+        },
+        "b3": {
+          "type": "announcement",
+          "settings": {
+            "icon": "🏆",
+            "badge": "FIDE STANDARD",
+            "text": "Official Tournament Weighted Boards & Pieces"
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3"]
+    },
+    "featured_favorites": {
+      "type": "featured-favorites",
+      "settings": {
+        "pill_text": "Player Favorites",
+        "title": "Grandmaster's Featured Selection",
+        "heading_size": "h1",
+        "description": "Our most acclaimed luxury sets, weighted pieces, and handcrafted board combinations.",
         "collection": "all",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "outline",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
         "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "show_view_all": true,
+        "color_scheme": "scheme-2",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "rich_text_strategy": {
@@ -104,6 +131,88 @@
         "full_width": true,
         "padding_top": 64,
         "padding_bottom": 64
+      }
+    },
+    "chess_trust_badges": {
+      "type": "chess-trust-badges",
+      "settings": {
+        "title": "Royal Craftsmanship & Guarantees",
+        "heading_size": "h1",
+        "subtitle": "Every board, piece, and accessory is crafted for tournament precision and lasting beauty.",
+        "heading_alignment": "center",
+        "card_alignment": "center",
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "color_scheme": "scheme-2",
+        "padding_top": 60,
+        "padding_bottom": 60
+      },
+      "blocks": {
+        "badge_1": {
+          "type": "badge",
+          "settings": {
+            "icon": "♟️",
+            "title": "Triple-Weighted Pieces",
+            "text": "Weighted brass and lead cores give every move a firm, authoritative click.",
+            "tag": "Tournament Ready"
+          }
+        },
+        "badge_2": {
+          "type": "badge",
+          "settings": {
+            "icon": "🪵",
+            "title": "Sustainable Hardwood",
+            "text": "Selected grain Sheesham, Walnut, Ebonized Boxwood, and Italian Marble finishes.",
+            "tag": "Hand Carved"
+          }
+        },
+        "badge_3": {
+          "type": "badge",
+          "settings": {
+            "icon": "🛡️",
+            "title": "Felt Scratch Protection",
+            "text": "Heavy green & gold velvet felt pads on every piece base to guard heirloom boards.",
+            "tag": "Board Guard"
+          }
+        },
+        "badge_4": {
+          "type": "badge",
+          "settings": {
+            "icon": "✈️",
+            "title": "Insured Global Shipping",
+            "text": "Custom fitted foam velvet cases ensure flawless arrival anywhere in the world.",
+            "tag": "100% Guaranteed"
+          }
+        }
+      },
+      "block_order": ["badge_1", "badge_2", "badge_3", "badge_4"]
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Opening moves: featured picks",
+        "heading_size": "h2",
+        "description": "Boards, pieces, apparel, and study-night accessories curated for every rank.",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "outline",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "padding_top": 44,
+        "padding_bottom": 36
       }
     },
     "multicolumn_why": {
@@ -162,7 +271,10 @@
   },
   "order": [
     "image_banner",
+    "announcement_ticker",
+    "featured_favorites",
     "rich_text_strategy",
+    "chess_trust_badges",
     "featured_collection",
     "multicolumn_why"
   ]
