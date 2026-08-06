@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -6,18 +15,18 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Claim the Board in CastleyCrown Style",
+            "heading": "Browse our latest products",
             "heading_size": "h0"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop the kingdom",
+            "button_label_1": "Shop all",
             "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": true,
-            "button_label_2": "View new arrivals",
-            "button_link_2": "shopify://collections/all",
+            "button_label_2": "",
+            "button_link_2": "",
             "button_style_secondary_2": false
           }
         }
@@ -29,126 +38,165 @@
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
         "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
         "desktop_content_alignment": "center",
+        "show_text_box": false,
         "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
         "show_text_below": false
       }
     },
-    "announcement_ticker": {
-      "type": "announcement-ticker",
+    "featured_collection": {
+      "type": "featured-collection",
       "settings": {
-        "color_scheme": "scheme-3",
-        "scroll_speed": 25,
-        "text_size": 14,
-        "pause_on_hover": true,
-        "padding_top": 12,
-        "padding_bottom": 12
-      },
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_RxHXVx": {
+      "type": "rich-text",
       "blocks": {
-        "b1": {
-          "type": "announcement",
+        "heading_nxfP98": {
+          "type": "heading",
           "settings": {
-            "icon": "♟️",
-            "badge": "FREE SHIPPING",
-            "text": "Express Insured Delivery Worldwide on All Premium Sets"
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
           }
         },
-        "b2": {
-          "type": "announcement",
+        "text_DFRNje": {
+          "type": "text",
           "settings": {
-            "icon": "👑",
-            "badge": "CODE: CHECKMATE",
-            "text": "10% Off Your First Royal Chess Set"
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
           }
         },
-        "b3": {
-          "type": "announcement",
+        "button_6cKUbK": {
+          "type": "button",
           "settings": {
-            "icon": "🏆",
-            "badge": "FIDE STANDARD",
-            "text": "Official Tournament Weighted Boards & Pieces"
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
-      "block_order": ["b1", "b2", "b3"]
+      "block_order": [
+        "heading_nxfP98",
+        "text_DFRNje",
+        "button_6cKUbK"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     },
-    "featured_favorites": {
+    "multirow_QAWqPF": {
+      "type": "multirow",
+      "blocks": {
+        "row_drGEhw": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_UcGHP4": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_9URC38": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_drGEhw",
+        "row_UcGHP4",
+        "row_9URC38"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_favorites_Kdf37N": {
       "type": "featured-favorites",
+      "name": "Grandmaster Favorites",
       "settings": {
         "pill_text": "Player Favorites",
         "title": "Grandmaster's Featured Selection",
         "heading_size": "h1",
         "description": "Our most acclaimed luxury sets, weighted pieces, and handcrafted board combinations.",
-        "collection": "all",
+        "collection": "",
         "products_to_show": 4,
         "columns_desktop": 4,
         "columns_mobile": "2",
         "show_view_all": true,
-        "color_scheme": "scheme-2",
+        "color_scheme": "",
         "padding_top": 64,
         "padding_bottom": 64
       }
     },
-    "rich_text_strategy": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "From casual games to tournament nights",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>CastleyCrown brings a royal chess-shop mood to every product page with deep boardroom tones, polished gold accents, and copy made for players, collectors, and gift-givers.</p>"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Find your next move",
-            "button_link": "shopify://collections/all",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-2",
-        "full_width": true,
-        "padding_top": 64,
-        "padding_bottom": 64
-      }
-    },
-    "chess_trust_badges": {
+    "chess_trust_badges_YU3XpX": {
       "type": "chess-trust-badges",
-      "settings": {
-        "title": "Royal Craftsmanship & Guarantees",
-        "heading_size": "h1",
-        "subtitle": "Every board, piece, and accessory is crafted for tournament precision and lasting beauty.",
-        "heading_alignment": "center",
-        "card_alignment": "center",
-        "columns_desktop": 4,
-        "columns_mobile": "1",
-        "color_scheme": "scheme-2",
-        "padding_top": 60,
-        "padding_bottom": 60
-      },
       "blocks": {
-        "badge_1": {
+        "badge_UGqFja": {
           "type": "badge",
           "settings": {
             "icon": "♟️",
@@ -157,7 +205,7 @@
             "tag": "Tournament Ready"
           }
         },
-        "badge_2": {
+        "badge_FLLfQb": {
           "type": "badge",
           "settings": {
             "icon": "🪵",
@@ -166,7 +214,7 @@
             "tag": "Hand Carved"
           }
         },
-        "badge_3": {
+        "badge_LtzTUW": {
           "type": "badge",
           "settings": {
             "icon": "🛡️",
@@ -175,7 +223,7 @@
             "tag": "Board Guard"
           }
         },
-        "badge_4": {
+        "badge_h3PaxA": {
           "type": "badge",
           "settings": {
             "icon": "✈️",
@@ -185,97 +233,80 @@
           }
         }
       },
-      "block_order": ["badge_1", "badge_2", "badge_3", "badge_4"]
-    },
-    "featured_collection": {
-      "type": "featured-collection",
+      "block_order": [
+        "badge_UGqFja",
+        "badge_FLLfQb",
+        "badge_LtzTUW",
+        "badge_h3PaxA"
+      ],
+      "name": "Royal Craft Badges",
       "settings": {
-        "title": "Opening moves: featured picks",
-        "heading_size": "h2",
-        "description": "Boards, pieces, apparel, and study-night accessories curated for every rank.",
-        "show_description": true,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
+        "title": "Royal Craftsmanship & Guarantees",
+        "heading_size": "h1",
+        "subtitle": "Every board, piece, and accessory is crafted for tournament precision and lasting beauty.",
+        "heading_alignment": "center",
+        "card_alignment": "center",
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "outline",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "columns_mobile": "1",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
-    "multicolumn_why": {
-      "type": "multicolumn",
+    "announcement_ticker_mpFJCp": {
+      "type": "announcement-ticker",
       "blocks": {
-        "one": {
-          "type": "column",
+        "announcement_MMzaip": {
+          "type": "announcement",
           "settings": {
-            "title": "\u2654 Royal materials",
-            "text": "<p>Premium boards, statement pieces, and accessories selected for display-worthy play.</p>",
-            "link_label": "",
+            "icon": "♟️",
+            "badge": "FREE SHIPPING",
+            "text": "Express Insured Delivery Worldwide on All Premium Sets",
             "link": ""
           }
         },
-        "two": {
-          "type": "column",
+        "announcement_WPmHTG": {
+          "type": "announcement",
           "settings": {
-            "title": "\u265e Tactical gifts",
-            "text": "<p>Smart finds for beginners, club regulars, coaches, and chess-obsessed friends.</p>",
-            "link_label": "",
+            "icon": "👑",
+            "badge": "CODE: CHECKMATE",
+            "text": "10% Off Your First Royal Chess Set",
             "link": ""
           }
         },
-        "three": {
-          "type": "column",
+        "announcement_amGbi6": {
+          "type": "announcement",
           "settings": {
-            "title": "\u265c Built for the endgame",
-            "text": "<p>Durable staples and timeless designs that stay sharp match after match.</p>",
-            "link_label": "",
+            "icon": "🏆",
+            "badge": "FIDE STANDARD",
+            "text": "Official Tournament Weighted Boards & Pieces",
             "link": ""
           }
         }
       },
       "block_order": [
-        "one",
-        "two",
-        "three"
+        "announcement_MMzaip",
+        "announcement_WPmHTG",
+        "announcement_amGbi6"
       ],
+      "name": "Royal Ticker Bar",
       "settings": {
-        "title": "Why shop CastleyCrown",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 52,
-        "padding_bottom": 52
+        "color_scheme": "",
+        "scroll_speed": 25,
+        "text_size": 14,
+        "pause_on_hover": true,
+        "padding_top": 10,
+        "padding_bottom": 10
       }
     }
   },
   "order": [
     "image_banner",
-    "announcement_ticker",
-    "featured_favorites",
-    "rich_text_strategy",
-    "chess_trust_badges",
     "featured_collection",
-    "multicolumn_why"
+    "rich_text_RxHXVx",
+    "multirow_QAWqPF",
+    "featured_favorites_Kdf37N",
+    "chess_trust_badges_YU3XpX",
+    "announcement_ticker_mpFJCp"
   ]
 }
