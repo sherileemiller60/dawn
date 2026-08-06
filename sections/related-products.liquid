@@ -52,6 +52,37 @@
           {%- assign skip_card_product_styles = true -%}
         {% endfor %}
       </ul>
+    {% else %}
+      <!-- Static catalog fallback when recommendations API is empty or indexing -->
+      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+        {{ section.settings.heading }}
+      </h2>
+      <ul
+        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+        role="list"
+      >
+        {% assign skip_card_product_styles = false %}
+        {% assign limit = section.settings.products_to_show %}
+        {% assign count = 0 %}
+        {% for fallback_product in collections.all.products %}
+          {% if fallback_product.id != product.id and count < limit %}
+            <li class="grid__item">
+              {% render 'card-product',
+                card_product: fallback_product,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_rating: section.settings.show_rating,
+                skip_styles: skip_card_product_styles,
+                product_view_context: 'recommendation'
+              %}
+            </li>
+            {%- assign skip_card_product_styles = true -%}
+            {% assign count = count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      </ul>
     {% endif %}
   </product-recommendations>
   {% if section.settings.image_shape == 'arch' %}
