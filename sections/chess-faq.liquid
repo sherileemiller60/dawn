@@ -1,0 +1,256 @@
+{%- style -%}
+  .section-faq-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .faq__header {
+    text-align: {{ section.settings.heading_alignment }};
+    margin-bottom: 3.5rem;
+  }
+
+  .faq__title {
+    margin: 0 0 1rem;
+    font-weight: 700;
+  }
+
+  .faq__subtitle {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .faq__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 1.5rem 0;
+  }
+
+  .faq-item:first-child {
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .faq-item__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    color: inherit;
+  }
+
+  .faq-item__icon {
+    font-size: 1rem;
+    color: #D4AF37;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin-top 0.3s ease;
+    opacity: 0.85;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  .faq-item.active .faq-item__answer {
+    margin-top: 1rem;
+    max-height: 500px; /* arbitrary height to allow auto-expanded scroll */
+  }
+
+  .faq-item.active .faq-item__icon {
+    transform: rotate(180deg);
+  }
+{%- endstyle -%}
+
+<div class="section-faq-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {%- if section.settings.title != blank or section.settings.subtitle != blank -%}
+      <div class="faq__header">
+        {%- if section.settings.title != blank -%}
+          <h2 class="faq__title {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="faq__subtitle">{{ section.settings.subtitle | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="faq__container">
+      {%- for block in section.blocks -%}
+        <div class="faq-item" {{ block.shopify_attributes }}>
+          <button class="faq-item__question" aria-expanded="false" onclick="toggleFaq(this)">
+            <span>{{ block.settings.question | escape }}</span>
+            <span class="faq-item__icon" aria-hidden="true">▼</span>
+          </button>
+          <div class="faq-item__answer">
+            <p>{{ block.settings.answer }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleFaq(button) {
+    const faqItem = button.parentElement;
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    
+    // Close other open FAQ items (optional, but clean)
+    document.querySelectorAll('.faq-item').forEach(item => {
+      if (item !== faqItem) {
+        item.classList.remove('active');
+        item.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+        item.querySelector('.faq-item__answer').style.maxHeight = null;
+      }
+    });
+
+    // Toggle current item
+    faqItem.classList.toggle('active');
+    button.setAttribute('aria-expanded', !isExpanded);
+    
+    const answer = faqItem.querySelector('.faq-item__answer');
+    if (faqItem.classList.contains('active')) {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    } else {
+      answer.style.maxHeight = null;
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Buyer's Chess FAQ",
+  "class": "section-chess-faq",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Tactical Buyer's Guide & FAQ"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Answers to the most common questions from tournament regulars, collectors, and gift givers."
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center",
+      "label": "Heading alignment"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What constitutes a tournament-ready or FIDE-compliant chess set?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "FIDE (World Chess Federation) standard tournament pieces require a King height of 3.75 inches (95 mm) and a base diameter that is 40-50% of the height. Additionally, squares on the board should measure 2.25 inches (57 mm) to match the pieces perfectly for clear spatial perception."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Buyer's Chess FAQ",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What is the benefit of a 'triple-weighted' chess set?",
+            "answer": "Triple-weighted pieces have iron or brass weights cast directly into the hollow core of the plastic or wood piece. This increases the weight of the set (usually around 3 to 4 lbs total). Weighted pieces feel robust in hand, slide smoothly, and are extremely stable, preventing them from tipping over during blitz matches."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How are the heirloom boards protected from scratches?",
+            "answer": "All our premium pieces feature thick, heavy felt pads glued to the base. Our premium wood lines utilize heavy-grade green or gold velvet felt to absorb impact and glide effortlessly across hand-polished lacquer without leaving micro-scratches."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Which wood type is best for durability and grain aesthetics?",
+            "answer": "For traditional contrasting boards, we use Maple or Boxwood for light squares, and solid Sheesham, Rosewood, or Walnut for dark squares. Ebonized Boxwood (wood treated to mirror genuine Ebony) provides the ultimate jet-black luxury aesthetic while retaining standard hardwood durability."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "What is your damage-free shipping guarantee?",
+            "answer": "Chess boards and carved pieces are delicate. Every CastleyCrown set is shipped in custom-molded foam compartments, bubble wrapped, and double-boxed. If any item is chipped or damaged during transit, we ship a replacement piece immediately, 100% free of charge."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

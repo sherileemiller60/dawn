@@ -172,7 +172,7 @@
             }}
           </div>
         {%- else -%}
-          <span class="h2">{{ shop.name }}</span>
+          <img src="{{ 'logo-castleycrown.svg' | asset_url }}" alt="{{ shop.name }}" class="header__heading-logo" width="140" height="35" style="max-width: {{ settings.logo_width }}px; height: auto;">
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
@@ -215,7 +215,7 @@
             }}
           </div>
         {%- else -%}
-          <span class="h2">{{ shop.name }}</span>
+          <img src="{{ 'logo-castleycrown.svg' | asset_url }}" alt="{{ shop.name }}" class="header__heading-logo" width="140" height="35" style="max-width: {{ settings.logo_width }}px; height: auto;">
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}

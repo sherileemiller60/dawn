@@ -8,6 +8,46 @@
 {%- style -%}
   .footer {
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+    border-top: 2px solid #D4AF37;
+    position: relative;
+  }
+
+  .footer::before {
+    content: "♟ 👑 ♟";
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: inherit;
+    padding: 0 20px;
+    color: #D4AF37;
+    font-size: 1.3rem;
+    letter-spacing: 6px;
+    z-index: 10;
+  }
+
+  .footer-block__heading {
+    color: #D4AF37 !important;
+    font-family: inherit;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .footer-block__details-content a {
+    transition: color 0.2s ease-in-out;
+  }
+
+  .footer-block__details-content a:hover {
+    color: #D4AF37 !important;
+  }
+
+  .footer-block--newsletter .field__input:focus {
+    box-shadow: 0 0 0 2px #D4AF37 !important;
+  }
+
+  .newsletter-form__button:hover {
+    color: #D4AF37 !important;
   }
 
   .section-{{ section.id }}-padding {
