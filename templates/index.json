@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -39,130 +48,50 @@
         "show_text_below": false
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
-    },
-    "rich_text_RxHXVx": {
-      "type": "rich-text",
+    "announcement_ticker_mpFJCp": {
+      "type": "announcement-ticker",
       "blocks": {
-        "heading_nxfP98": {
-          "type": "heading",
+        "announcement_MMzaip": {
+          "type": "announcement",
           "settings": {
-            "heading": "Crafting Heirlooms for the Thoughtful Mind",
-            "heading_size": "h1"
+            "icon": "♟️",
+            "badge": "FREE SHIPPING",
+            "text": "Express Insured Delivery Worldwide on All Premium Sets",
+            "link": ""
           }
         },
-        "text_DFRNje": {
-          "type": "text",
+        "announcement_WPmHTG": {
+          "type": "announcement",
           "settings": {
-            "text": "<p>At CastleyCrown, we believe a chess match is more than a game—it is an experience of tactical depth and aesthetic appreciation. Every piece is weighted to command the board, every square is inlaid by hand, and every detail is designed to endure. Whether you are opening your first study or defending your title, we build the gear that elevates your game.</p>"
+            "icon": "👑",
+            "badge": "CODE: CHECKMATE",
+            "text": "10% Off Your First Royal Chess Set",
+            "link": ""
           }
         },
-        "button_6cKUbK": {
-          "type": "button",
+        "announcement_amGbi6": {
+          "type": "announcement",
           "settings": {
-            "button_label": "Discover Our Craft",
-            "button_link": "shopify://collections/all",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "icon": "🏆",
+            "badge": "FIDE STANDARD",
+            "text": "Official Tournament Weighted Boards & Pieces",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "heading_nxfP98",
-        "text_DFRNje",
-        "button_6cKUbK"
+        "announcement_MMzaip",
+        "announcement_WPmHTG",
+        "announcement_amGbi6"
       ],
-      "name": "t:sections.rich-text.presets.name",
+      "name": "Royal Ticker Bar",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-2",
-        "full_width": true,
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-    "multirow_QAWqPF": {
-      "type": "multirow",
-      "blocks": {
-        "row_drGEhw": {
-          "type": "row",
-          "settings": {
-            "caption": "Tournament Precision",
-            "heading": "The Grandmaster Weight Standard",
-            "text": "<p>Every knight, rook, and pawn in our premium collections features a solid metal core. This satisfying weight provides tactile feedback and maximum stability, ensuring pieces stand firm even in the most intense time scrambles.</p>",
-            "button_label": "Explore Weighted Sets",
-            "button_link": "shopify://collections/all"
-          }
-        },
-        "row_UcGHP4": {
-          "type": "row",
-          "settings": {
-            "caption": "Hand-Cut Artistry",
-            "heading": "Artisan Woodcraft & Inlay",
-            "text": "<p>Our boards are crafted from hand-selected cuts of American Walnut, Ebonized Boxwood, and premium Maple. Each square is individually cut and inlaid by master artisans, finished with a velvet-matte lacquer that minimizes glare under tournament lights.</p>",
-            "button_label": "View Our Boards",
-            "button_link": "shopify://collections/all"
-          }
-        },
-        "row_9URC38": {
-          "type": "row",
-          "settings": {
-            "caption": "Secure Custody",
-            "heading": "Insured Protection Case",
-            "text": "<p>Heirloom pieces deserve tournament guard. Every complete set arrives nestled in a custom-molded, velvet-lined solid wood storage case. We guarantee flawless transit worldwide, or we replace your set immediately.</p>",
-            "button_label": "Learn About Shipping",
-            "button_link": "shopify://collections/all"
-          }
-        }
-      },
-      "block_order": [
-        "row_drGEhw",
-        "row_UcGHP4",
-        "row_9URC38"
-      ],
-      "name": "t:sections.multirow.presets.name",
-      "settings": {
-        "image_height": "medium",
-        "desktop_image_width": "medium",
-        "image_layout": "alternate-left",
-        "heading_size": "h1",
-        "text_style": "body",
-        "button_style": "secondary",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "scheme-2",
-        "row_color_scheme": "scheme-2",
-        "padding_top": 64,
-        "padding_bottom": 64
+        "color_scheme": "scheme-3",
+        "scroll_speed": 25,
+        "text_size": 14,
+        "pause_on_hover": true,
+        "padding_top": 10,
+        "padding_bottom": 10
       }
     },
     "featured_favorites_Kdf37N": {
@@ -173,7 +102,7 @@
         "title": "Grandmaster's Featured Selection",
         "heading_size": "h1",
         "description": "Our most acclaimed luxury sets, weighted pieces, and handcrafted board combinations.",
-        "collection": "",
+        "collection": "frontpage",
         "products_to_show": 4,
         "columns_desktop": 4,
         "columns_mobile": "2",
@@ -243,63 +172,107 @@
         "padding_bottom": 60
       }
     },
-    "announcement_ticker_mpFJCp": {
-      "type": "announcement-ticker",
+    "multirow_QAWqPF": {
+      "type": "multirow",
       "blocks": {
-        "announcement_MMzaip": {
-          "type": "announcement",
+        "row_drGEhw": {
+          "type": "row",
           "settings": {
-            "icon": "♟️",
-            "badge": "FREE SHIPPING",
-            "text": "Express Insured Delivery Worldwide on All Premium Sets",
-            "link": ""
+            "caption": "Tournament Precision",
+            "heading": "The Grandmaster Weight Standard",
+            "text": "<p>Every knight, rook, and pawn in our premium collections features a solid metal core. This satisfying weight provides tactile feedback and maximum stability, ensuring pieces stand firm even in the most intense time scrambles.</p>",
+            "button_label": "Explore Weighted Sets",
+            "button_link": "shopify://collections/all"
           }
         },
-        "announcement_WPmHTG": {
-          "type": "announcement",
+        "row_UcGHP4": {
+          "type": "row",
           "settings": {
-            "icon": "👑",
-            "badge": "CODE: CHECKMATE",
-            "text": "10% Off Your First Royal Chess Set",
-            "link": ""
+            "caption": "Hand-Cut Artistry",
+            "heading": "Artisan Woodcraft & Inlay",
+            "text": "<p>Our boards are crafted from hand-selected cuts of American Walnut, Ebonized Boxwood, and premium Maple. Each square is individually cut and inlaid by master artisans, finished with a velvet-matte lacquer that minimizes glare under tournament lights.</p>",
+            "button_label": "View Our Boards",
+            "button_link": "shopify://collections/all"
           }
         },
-        "announcement_amGbi6": {
-          "type": "announcement",
+        "row_9URC38": {
+          "type": "row",
           "settings": {
-            "icon": "🏆",
-            "badge": "FIDE STANDARD",
-            "text": "Official Tournament Weighted Boards & Pieces",
-            "link": ""
+            "caption": "Secure Custody",
+            "heading": "Insured Protection Case",
+            "text": "<p>Heirloom pieces deserve tournament guard. Every complete set arrives nestled in a custom-molded, velvet-lined solid wood storage case. We guarantee flawless transit worldwide, or we replace your set immediately.</p>",
+            "button_label": "Learn About Shipping",
+            "button_link": "shopify://collections/all"
           }
         }
       },
       "block_order": [
-        "announcement_MMzaip",
-        "announcement_WPmHTG",
-        "announcement_amGbi6"
+        "row_drGEhw",
+        "row_UcGHP4",
+        "row_9URC38"
       ],
-      "name": "Royal Ticker Bar",
+      "name": "t:sections.multirow.presets.name",
       "settings": {
-        "color_scheme": "scheme-3",
-        "scroll_speed": 25,
-        "text_size": 14,
-        "pause_on_hover": true,
-        "padding_top": 10,
-        "padding_bottom": 10
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-2",
+        "row_color_scheme": "scheme-2",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "rich_text_RxHXVx": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nxfP98": {
+          "type": "heading",
+          "settings": {
+            "heading": "Crafting Heirlooms for the Thoughtful Mind",
+            "heading_size": "h1"
+          }
+        },
+        "text_DFRNje": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At CastleyCrown, we believe a chess match is more than a game—it is an experience of tactical depth and aesthetic appreciation. Every piece is weighted to command the board, every square is inlaid by hand, and every detail is designed to endure. Whether you are opening your first study or defending your title, we build the gear that elevates your game.</p>"
+          }
+        },
+        "button_6cKUbK": {
+          "type": "button",
+          "settings": {
+            "button_label": "Discover Our Craft",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_nxfP98",
+        "text_DFRNje",
+        "button_6cKUbK"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "chess_faq": {
       "type": "chess-faq",
-      "settings": {
-        "title": "Tactical Buyer's Guide & FAQ",
-        "heading_size": "h1",
-        "subtitle": "Answers to the most common questions from tournament regulars, collectors, and gift givers.",
-        "heading_alignment": "center",
-        "color_scheme": "scheme-2",
-        "padding_top": 60,
-        "padding_bottom": 60
-      },
       "blocks": {
         "faq_1": {
           "type": "faq",
@@ -335,7 +308,16 @@
         "faq_2",
         "faq_3",
         "faq_4"
-      ]
+      ],
+      "settings": {
+        "title": "Tactical Buyer's Guide & FAQ",
+        "heading_size": "h1",
+        "subtitle": "Answers to the most common questions from tournament regulars, collectors, and gift givers.",
+        "heading_alignment": "center",
+        "color_scheme": "scheme-2",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -345,7 +327,6 @@
     "chess_trust_badges_YU3XpX",
     "multirow_QAWqPF",
     "rich_text_RxHXVx",
-    "chess_faq",
-    "featured_collection"
+    "chess_faq"
   ]
 }
